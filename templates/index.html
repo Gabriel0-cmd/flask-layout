@@ -1,11 +1,56 @@
- {% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mim</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Sobre mim</a></li>
+                <li><a href="/sobremim">Página pessoal</a></li>
+                <img src="fotos/78268ED7-40A8-4CCE-85F6-08E932DB457D.jpg" alt="">
+            </ul>
+        </nav>
+    </header>
 
- {% block main %}
-    <h1>Olá, {{ aluno['nome'] }}</h1>
-    <h2>Turma: {{ aluno['turma'] }}</h2>
-    <ul>
-        {% for professor in professores %}
-        <li>{{ professor['nome] }} - {{professor['materia'] }}</li>
-        {% endfor %}
-    </ul>
- {% endblock %}
+    <main>
+        <section>
+            <h1>Olá, sou Gabriel</h1>
+            <p>
+                Meu nome é Gabriel, sou aluno do 2° ano do Ensino Médio Técnico e estou aprendendo
+                muito sobre tecnologia e programação.
+            </p>
+            <p>
+                Gosto de estudar, descobrir coisas novas e desenvolver projetos que me desafiem.
+                Também gosto de ouvir música, conversar com pessoas e melhorar minhas habilidades
+                todos os dias.
+            </p>
+            <p>
+                Eu estou sempre buscando evoluir, aprender com meus professores e fazer o melhor
+                nas atividades escolares e pessoais.
+            </p>
+        </section>
+
+        <section>
+            <h2>Meus interesses</h2>
+            <ul>
+                <li>Tecnologia</li>
+                <li>Programação</li>
+                <li>Desenvolvimento web</li>
+                <li>Projetos criativos</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Objetivos</h2>
+            <p>
+                Quero continuar aprendendo, crescer na área de informática e construir coisas que
+                sejam úteis para outras pessoas.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
