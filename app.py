@@ -1,29 +1,24 @@
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def index():
-    aluno = {
-        "nome": "Pedro",
-        "turma": "2°EM Tecnico"
-    }
-    professores = [
-        {
-            "nome": "Ishara",
-            "materia": "Web"
-        },
-        {
-            "nome": "Edidio",
-            "materia": "Software"
-        }
-    ]
-    return render_template('index.html', title="Home", aluno=aluno, professores=professores)
+    return render_template("index.html", title="Home")
+
 
 @app.route("/boletim")
 def boletim():
-    return render_template('boletim.html', title="Boletim")
+    return render_template("boletim.html", title="Boletim")
+
 
 @app.route("/sobremim")
 def sobremim():
-    return render_template('sobremim.html', title="Sobre mim")
+    return render_template("sobremim.html", title="Sobre mim")
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
