@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('boletim') }}">Boletim</a></li>
+                <li><a href="{{ url_for('sobremim') }}">Sobre mim</a></li>
+                <li><a href="{{ url_for('validacao') }}">Validação</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Validação de idade</h1>
+        <p>Informe seus dados para verificar se você pode votar e dirigir.</p>
+
+        <form method="post">
+            <p>
+                <label for="nome">Nome</label><br>
+                <input type="text" id="nome" name="nome" value="{{ dados[0] }}" required>
+            </p>
+            <p>
+                <label for="sobrenome">Sobrenome</label><br>
+                <input type="text" id="sobrenome" name="sobrenome" value="{{ dados[1] }}" required>
+            </p>
+            <p>
+                <label for="idade">Idade</label><br>
+                <input type="number" id="idade" name="idade" min="0" required value="{{ dados[2] }}">
+            </p>
+            <button type="submit">Verificar</button>
+        </form>
+
+        {% if erro %}
+            <p role="alert">{{ erro }}</p>
+        {% endif %}
+
+        {% if resultado %}
+            <section aria-live="polite">
+                <h2>Resultado</h2>
+                {% for mensagem in resultado %}
+                    <p>{{ mensagem }}</p>
+                {% endfor %}
+            </section>
+        {% endif %}
+    </main>
+</body>
+</html>
