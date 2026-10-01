@@ -20,25 +20,15 @@
     </header>
 
     <main>
-        <h1>Boletim</h1>
-        {% if notas %}
-            <table>
-                <thead>
-                    <tr><th>Matéria</th><th>Nota</th><th>Período</th></tr>
-                </thead>
-                <tbody>
-                    {% for registro in notas %}
-                        <tr>
-                            <td>{{ registro['materia'] }}</td>
-                            <td>{{ '%.1f'|format(registro['nota']) }}</td>
-                            <td>{{ registro['bimestre'] }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <h1>Anotações pessoais</h1>
+        {% for registro in registros %}
+            <section>
+                <h2>{{ registro['titulo'] }}</h2>
+                <p>{{ registro['conteudo'] }}</p>
+            </section>
         {% else %}
-            <p>Nenhuma nota cadastrada.</p>
-        {% endif %}
+            <p>Nenhuma anotação cadastrada.</p>
+        {% endfor %}
     </main>
 </body>
 </html>
